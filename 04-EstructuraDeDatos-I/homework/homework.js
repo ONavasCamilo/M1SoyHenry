@@ -14,9 +14,23 @@ Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
 */
 
-function nFactorial(n) {}
+function nFactorial(n) {
+  if(n <= 1) return 1
+  return n * nFactorial(n - 1)
+}
 
-function nFibonacci(n) {}
+// function nFibonacci(n) {
+//  if(n < 2) return n
+//  return nFibonacci(n - 2) + nFibonacci(n - 1)
+// }
+
+function nFibonacci(n) {
+ const fib = [0, 1]
+ for (let i = 2; i <= n; i++) {
+  fib[i] = fib[i - 2] + fib[i - 1]
+ }
+ return fib[n]
+}
 
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
@@ -27,7 +41,44 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {}
+function Queue() {
+  this._stack = []
+}
+
+Queue.prototype.enqueue = function(item) {
+  return this._stack.unshift(item)
+}
+
+Queue.prototype.dequeue = function() {
+  if(this._length === 0) return undefined
+  return this._stack.pop()
+}
+
+Queue.prototype.size = function() {
+  return this._stack.length
+}
+
+// class Queue{
+//   constructor(){
+//     this._stack = []
+//     this._length = 0
+//   }
+
+//   enqueue(item) {
+//     this._length++
+//     return this._stack.unshift(item)
+//   }
+
+//   dequeue() {
+//     if(this._length === 0) return undefined
+//     this._length--
+//     return this._stack.pop()
+//   }
+
+//   size() {
+//     return this._length
+//   }
+// }
 
 /*⚠️ No modificar nada debajo de esta línea ⚠️*/
 module.exports = {

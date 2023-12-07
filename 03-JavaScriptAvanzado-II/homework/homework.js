@@ -55,6 +55,20 @@ function cacheFunction(cb) {
   }
 }
 
+function cacheFunction2V(cb) {
+  const cache = {}
+  return function(arg) {
+    if(cache.hasOwnProperty(arg)) {
+      return cache[arg]
+    }
+    else {
+      const resultado = cb(arg)
+      cache[arg] = resultado
+      return resultado
+    }
+  }
+}
+
 function square(n){
   return n * n
 }
@@ -83,7 +97,7 @@ var alumno = {
 };
 
 function getNombre() {
-  return this.nombre;
+  return this.nombre
 }
 
 /*
@@ -104,9 +118,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
     return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind('Hola', '*', '*');
-let textoGuiones = crearCadena.bind('Hola', '-', '-');
-let textoUnderscore = crearCadena.bind('Hola', '_', '_');
+let textoAsteriscos = crearCadena.bind(this, '*', '*');
+let textoGuiones = crearCadena.bind(null, '-', '-');
+let textoUnderscore = crearCadena.bind(this, '_', '_');
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
