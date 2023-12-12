@@ -19,10 +19,10 @@ function nFactorial(n) {
   return n * nFactorial(n - 1)
 }
 
-// function nFibonacci(n) {
-//  if(n < 2) return n
-//  return nFibonacci(n - 2) + nFibonacci(n - 1)
-// }
+function nFibonacci(n) {
+ if(n < 2) return n
+ return nFibonacci(n - 2) + nFibonacci(n - 1)
+}
 
 function nFibonacci(n) {
  const fib = [0, 1]

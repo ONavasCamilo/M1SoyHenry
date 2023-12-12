@@ -7,7 +7,7 @@ class Stack{
         this.__stack__.push(info)
     }
 
-    delete() {
+    delete() { 
         this.__stack__.pop()
     }
 
