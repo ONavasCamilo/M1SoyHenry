@@ -33,7 +33,7 @@ describe('binarySearchTree', function() {
     tree.insert(22);
 expect(tree.size()).toBe(3);
     expect(tree.left.value).toBe(12);
-    expect(tree.right.value).toBe(22);
+    expect(tree.right.value).toBe(22); 
   });
 
   it('ordena valores cuando agrega', function() {
